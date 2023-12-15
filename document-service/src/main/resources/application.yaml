@@ -1,0 +1,24 @@
+server:
+  port: 8081
+spring:
+  application.name: document-service
+  data:
+     mongodb:
+        host: localhost
+        port: 27017
+        database: message
+  kafka:
+    bootstrap-servers: grateful-finch-8549-eu2-kafka.upstash.io:9092
+    properties:
+      sasl:
+        mechanism: SCRAM-SHA-256
+        jaas:
+          config: org.apache.kafka.common.security.scram.ScramLoginModule required username="Z3JhdGVmdWwtZmluY2gtODU0OSSi5dcyul_0xNbE20pdkPNChxuDOtHCe7wf4po" password="MzA5MDU1ZjItNmM4Ni00ODk5LTliNjYtZGE4NGMzMjA0OTJk";
+      security:
+        protocol: SASL_SSL
+    consumer:
+      group-id: group_id
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    template:
+      default-topic: first_topic
