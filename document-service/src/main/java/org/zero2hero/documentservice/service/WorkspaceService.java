@@ -22,6 +22,7 @@ public class WorkspaceService {
                 .message(workspace)
                 .build();
         messageRepository.save(message);
+        //writes workspaces
         System.out.println("Workspace-->" + workspace);
     }
 }
