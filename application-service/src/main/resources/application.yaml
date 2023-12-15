@@ -8,7 +8,7 @@ spring:
       sasl:
         mechanism: SCRAM-SHA-256
         jaas:
-          config: org.apache.kafka.common.security.scram.ScramLoginModule required username="Z3JhdGVmdWwtZmluY2gtODU0OSSi5dcyul_0xNbE20pdkPNChxuDOtHCe7wf4po" password="MzA5MDU1ZjItNmM4Ni00ODk5LTliNjYtZGE4NGMzMjA0OTJk";
+          config: org.apache.kafka.common.security.scram.ScramLoginModule required username="your_username" password="your_password";
       security:
         protocol: SASL_SSL
     producer:
