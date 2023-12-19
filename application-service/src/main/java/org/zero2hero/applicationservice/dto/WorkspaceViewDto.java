@@ -10,11 +10,11 @@ import org.zero2hero.applicationservice.entity.Workspace;
 @NoArgsConstructor
 public class WorkspaceViewDto {
 
-    private Long id;
+    private String id;
     private String name;
 
 
     public static WorkspaceViewDto of(Workspace workspace) {
-        return new WorkspaceViewDto(workspace.getId(), workspace.getName());
+        return new WorkspaceViewDto(workspace.getId().toString(), workspace.getName());
     }
 }
