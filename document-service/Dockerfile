@@ -1,7 +1,7 @@
 FROM eclipse-temurin:17-alpine
 
-COPY target/*.jar app.jar
+COPY target/*.jar doc.jar
 
 EXPOSE 8081/tcp
 
-ENTRYPOINT ["java", "-jar","app.jar"]
+ENTRYPOINT ["java", "-jar","doc.jar"]

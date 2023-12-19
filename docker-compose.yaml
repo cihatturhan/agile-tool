@@ -9,26 +9,29 @@ services:
       - "8080:8080"
     container_name: application-service
     depends_on:
-      - postgres-db
+      - postgres
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/application_db
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/application_db
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=1234
       - SPRING_DATASOURCE_DB=application_db
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
 
-  postgres-db:
+  postgres:
     image: 'postgres:13.1-alpine'
     ports:
       - "5432:5432"
-    container_name: postgres-db
+    container_name: postgres
     environment:
-      - POSTGRES_DATABASE_URL=jdbc:postgresql://postgres-db:5432/application_db
+      - POSTGRES_DATABASE_URL=jdbc:postgresql://postgres:5432/application_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=application_db
+      
+      
   document-service:
     image: 'document-service:latest'
+    container_name: document-service
     build:
       context: ./document-service
     depends_on:
@@ -42,5 +45,3 @@ services:
     restart: always
     ports:
       - "27017:27017"
-    expose:
-      - "27017"
